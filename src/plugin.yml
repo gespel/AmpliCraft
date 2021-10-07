@@ -1,0 +1,56 @@
+main: ampliCraft.AmpliCraft
+author: Sten Heimbrodt
+version: 1.0
+name: AmpliCraft
+depend: [WorldGuard]
+api-version: 1.16
+commands:
+  world:
+    description: Teleportiert dich zwischen den Welten
+    usage: /world go [worldname]
+  level:
+    description: Gibt dir dein Level aus. Dein Level gewährt dir Zugang zu Dingen auf dem Server.
+    usage: /level
+  rang:
+    description: Die Rangverwaltung. Zeigt Rang an und gibt die Möglichkeit zur Änderung
+    usage: /rang
+  rank:
+    description: Die Rangverwaltung. Zeigt Rang an und gibt die Möglichkeit zur Änderung
+    usage: /rank
+  geld:
+    description: Dein Geld. Du erhälst 0.2 % Zinsen pro Minute auf dein Konto
+    usage: /geld
+  money:
+    description: Dein Geld. Du erhälst 0.2 % Zinsen pro Minute auf dein Konto
+    usage: /money
+  pay:
+    description: Zahlen jemanden Geld.
+    usage: /pay [Name] [Betrag]
+  zahle:
+    description: Zahlen jemanden Geld.
+    usage: /zahle [Name] [Betrag]
+  spawn:
+    description: Teleportiert dich zum spawn
+    usage: /spawn
+  pvparena:
+    description: Die Arenafunktion. 
+    usage: /pvparena [teamfarbe]
+  pvearena:
+    description: Die PVE Arena.
+    usage: /pvearena
+  games:
+    description: Trete einem Spiel bei!
+    usage: /game [spielename]
+  zone:
+    description: Beanspruche die Zone für dich!
+    usage: /zone
+  teleporter:
+    description: Teleportiert dich zu teleporter Insel
+    usage: /teleporter
+  mysterybox:
+    description: Die MysteryBox
+    usage: /mysterybox open
+  stelarit:
+    description: Stelarit RPG
+    usage: /stelarit enter
+  
