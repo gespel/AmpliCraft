@@ -18,7 +18,7 @@ public class Levelsystem {
 		p.sendMessage("Du bist Level " + ChatColor.RED + levelInt.toString() + ChatColor.RESET + ".");
 		p.sendMessage("Du hast " + ChatColor.GREEN + expInt.toString() + ChatColor.RESET + " Erfahrungspunkte.");
 	}
-	public void addExp(int exp) {
+	public void addExp(int exp) {//a
 		config.set(p.getName() + ".Exp", config.getInt(p.getName() + ".Exp") + exp);
 		p.sendMessage(ChatColor.GOLD + "Du erhälst " + ChatColor.GREEN + exp + ChatColor.GOLD +" Erfahrungspunkte!");
 		updateLevel();
