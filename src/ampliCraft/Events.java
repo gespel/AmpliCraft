@@ -75,7 +75,7 @@ public class Events implements Listener {
 			Player p = (Player)killer;
 			if(PlayerSets.stelaritPlayer.containsKey(p)) {
 				StelaritPlayer sp = PlayerSets.stelaritPlayer.get(p);
-				for(Quest q : sp.activeQuests.values()) {
+				for(StelaritQuest q : sp.activeQuests.values()) {
 					if(mob.getType().equals(q.targetMob)) {
 						q.killedOneQuestMob();
 					}
@@ -89,17 +89,7 @@ public class Events implements Listener {
 		Player p = event.getPlayer();
 		if(entity.equals(PlayerSets.stelaritNPCS.get("birk"))) {
 			StelaritPlayer sp = PlayerSets.stelaritPlayer.get(p);
-			if(sp.getPlayerProgress() == 1 && !sp.activeQuests.containsKey("ersteSchritte")) {
-				Quest q = new Quest("ersteSchritte", sp, plugin.config);
-				sp.addQuest("ersteSchritte", q);
-			}
-			if(sp.getPlayerProgress() == 2 && sp.activeQuests.containsKey("ersteSchritte")) {
-				for(Quest q : sp.activeQuests.values()) {
-					if(q.id.equalsIgnoreCase("ersteSchritte")) {
-						q.lastDialog();
-					}
-				}
-			}
+			plugin.stelarit.getStory().updateCurrentQuest(sp);
 		}
 	}
 	@EventHandler

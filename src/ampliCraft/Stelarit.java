@@ -11,14 +11,18 @@ import net.md_5.bungee.api.ChatColor;
 
 public class Stelarit {
 	FileConfiguration config;
+	StelaritStory story;
 	
 	public Stelarit(FileConfiguration config) {
 		this.config = config;
+		story = new StelaritStory(config);
 		Entity birk = Bukkit.getWorld("stelarit").spawnEntity(new Location(Bukkit.getWorld("stelarit"), -175, 77, -172), EntityType.VILLAGER);
 		PlayerSets.stelaritNPCS.put("birk", birk);
 		System.out.println("Stelarit wurde gestartet!");
 	}
-	
+	public StelaritStory getStory() {
+		return this.story;
+	}
 	public void addPlayerToStelarit(Player p, StelaritPlayer sp) {
 		if(!PlayerSets.stelaritPlayer.containsKey(p)) {
 			PlayerSets.stelaritPlayer.put(p, sp);
