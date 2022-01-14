@@ -20,6 +20,7 @@ public abstract class StelaritQuest {
 	String questLastText;
 	int startStoryProgress;
 	int lastStoryProgress;
+	int questProgress;
 	
 	public StelaritQuest(String name, StelaritPlayer sp, FileConfiguration config) {
 		this.id = name;
@@ -61,4 +62,8 @@ public abstract class StelaritQuest {
 	public void setStartStoryProgress(int input) {
 		this.startStoryProgress = input;
 	}
+	public int getQuestProgress() {
+		return this.questProgress;
+	}
+	public abstract void subQuestRoutine();
 }

@@ -19,4 +19,10 @@ public class FirstStepsQuest extends StelaritQuest {
 		this.questLastText = "Danke! Endlich muss ich mir keine sorgen mehr machen, dass die Hälfte meiner Kundschaft auf dem Weg zu meiner Kneipe aufgefressen wird. Falls du wieder Arbeit suchst sprich mich an. Achso hier ist noch ein bisschen Geld für dich!";
 		this.rewardMoney = 50;
 	}
+
+	@Override
+	public void subQuestRoutine() {
+		// TODO Auto-generated method stub
+		
+	}
 }
