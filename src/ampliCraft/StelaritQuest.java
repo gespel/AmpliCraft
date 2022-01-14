@@ -65,5 +65,8 @@ public abstract class StelaritQuest {
 	public int getQuestProgress() {
 		return this.questProgress;
 	}
+	public void setQuestProgress(int input) {
+		this.questProgress = input;
+	}
 	public abstract void subQuestRoutine();
 }
