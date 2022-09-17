@@ -7,6 +7,8 @@ import java.util.Set;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
+import stelarit.StelaritPlayer;
+
 public class PlayerSets {
 	public static Set<Player> jnrPlayer = new HashSet<Player>();
 	public static Set<Player> elytraPlayer = new HashSet<Player>();

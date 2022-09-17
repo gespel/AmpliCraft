@@ -1,4 +1,4 @@
-package ampliCraft;
+package levelmoney;
 
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -20,7 +20,7 @@ public class Levelsystem {
 	}
 	public void addExp(int exp) {//a
 		config.set(p.getName() + ".Exp", config.getInt(p.getName() + ".Exp") + exp);
-		p.sendMessage(ChatColor.GOLD + "Du erhälst " + ChatColor.GREEN + exp + ChatColor.GOLD +" Erfahrungspunkte!");
+		p.sendMessage(ChatColor.GOLD + "Du erhï¿½lst " + ChatColor.GREEN + exp + ChatColor.GOLD +" Erfahrungspunkte!");
 		updateLevel();
 	}
 	public void updateLevel() {

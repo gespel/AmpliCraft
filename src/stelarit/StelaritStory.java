@@ -1,4 +1,4 @@
-package ampliCraft;
+package stelarit;
 
 import org.bukkit.configuration.file.FileConfiguration;
 

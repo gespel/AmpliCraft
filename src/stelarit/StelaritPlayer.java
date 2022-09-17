@@ -1,4 +1,4 @@
-package ampliCraft;
+package stelarit;
 
 import java.util.HashMap;
 

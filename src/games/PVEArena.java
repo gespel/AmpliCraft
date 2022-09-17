@@ -1,4 +1,4 @@
-package ampliCraft;
+package games;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -6,6 +6,8 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 
+import ampliCraft.AmpliCraft;
+import ampliCraft.Locations;
 import net.md_5.bungee.api.ChatColor;
 
 public class PVEArena {

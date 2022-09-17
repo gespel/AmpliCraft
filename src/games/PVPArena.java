@@ -1,4 +1,4 @@
-package ampliCraft;
+package games;
 
 import java.util.Random;
 
@@ -11,6 +11,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.inventory.ItemStack;
 
+import ampliCraft.PlayerSets;
+import levelmoney.Levelsystem;
 import net.md_5.bungee.api.ChatColor;
 
 public class PVPArena {

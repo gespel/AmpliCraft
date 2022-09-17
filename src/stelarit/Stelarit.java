@@ -1,4 +1,4 @@
-package ampliCraft;
+package stelarit;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -7,6 +7,7 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 
+import ampliCraft.PlayerSets;
 import net.md_5.bungee.api.ChatColor;
 
 public class Stelarit {
@@ -27,11 +28,11 @@ public class Stelarit {
 		if(!PlayerSets.stelaritPlayer.containsKey(p)) {
 			PlayerSets.stelaritPlayer.put(p, sp);
 			if(sp.getPlayerProgress() == 0) {
-				sp.getPlayer().sendMessage(ChatColor.GREEN + "Willkommen in der Welt von Stelarit! Du erwachst und bist erschöpft. Du hast allem anschein nach deine Errinerung verloren...");
+				sp.getPlayer().sendMessage(ChatColor.GREEN + "Willkommen in der Welt von Stelarit! Du erwachst und bist erschï¿½pft. Du hast allem anschein nach deine Errinerung verloren...");
 				sp.setPlayerProgress(1);
 			}
 			else {
-				sp.getPlayer().sendMessage(ChatColor.GREEN + "Willkommen zurück!");
+				sp.getPlayer().sendMessage(ChatColor.GREEN + "Willkommen zurï¿½ck!");
 			}
 		}
 		else {

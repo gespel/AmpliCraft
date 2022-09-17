@@ -1,8 +1,11 @@
-package ampliCraft;
+package stelarit;
 
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.EntityType;
+
+import levelmoney.Geldsystem;
+import levelmoney.Levelsystem;
 
 public class Quest {
 	String id;
@@ -29,7 +32,7 @@ public class Quest {
 			this.rewardExp = 100;
 			this.targetMob = EntityType.SPIDER;
 			this.targetMobNumber = 3;
-			this.questStartText = ChatColor.BLUE + "Du siehst so aus als würdest du Arbeit suchen? Wir haben vor der Taverne immer wieder Probeme mit Spinnen. " + ChatColor.GOLD + "Töte 3 davon und du erhälst eine Belohnung!";
+			this.questStartText = ChatColor.BLUE + "Du siehst so aus als wï¿½rdest du Arbeit suchen? Wir haben vor der Taverne immer wieder Probeme mit Spinnen. " + ChatColor.GOLD + "Tï¿½te 3 davon und du erhï¿½lst eine Belohnung!";
 			this.rewardMoney = 50;
 		}
 	}
@@ -40,7 +43,7 @@ public class Quest {
 			this.questFinished();
 		}
 		else {
-			sp.getPlayer().sendMessage(ChatColor.GRAY + "Du hast (" + killCount + "/" + targetMobNumber + ") " + targetMob.getName() + " getötet!");
+			sp.getPlayer().sendMessage(ChatColor.GRAY + "Du hast (" + killCount + "/" + targetMobNumber + ") " + targetMob.getName() + " getï¿½tet!");
 		}
 	}
 	public void questFinished() {
@@ -53,7 +56,7 @@ public class Quest {
 	}
 	public void lastDialog() {
 		if(this.id.equalsIgnoreCase("ersteSchritte")) {
-			sp.getPlayer().sendMessage(ChatColor.BLUE + "Danke! Endlich muss ich mir keine sorgen mehr machen, dass die Hälfte meiner Kundschaft auf dem Weg zu meiner Kneipe aufgefressen wird. Falls du wieder Arbeit suchst sprich mich an. Achso hier ist noch ein bisschen Geld für dich!");
+			sp.getPlayer().sendMessage(ChatColor.BLUE + "Danke! Endlich muss ich mir keine sorgen mehr machen, dass die Hï¿½lfte meiner Kundschaft auf dem Weg zu meiner Kneipe aufgefressen wird. Falls du wieder Arbeit suchst sprich mich an. Achso hier ist noch ein bisschen Geld fï¿½r dich!");
 			Geldsystem geld = new Geldsystem(sp.getPlayer(), config);
 			geld.addMoney(rewardMoney);
 			sp.setPlayerProgress(3);

@@ -6,17 +6,17 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/stenh/Downloads/spigot-1.17.jar">
+	<classpathentry kind="lib" path="/home/sten/Downloads/worldguard-bukkit-7.0.7-dist.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/stenh/Downloads/worldguard-bukkit-7.0.6-beta1-dist.jar">
+	<classpathentry kind="lib" path="/home/sten/Downloads/spigot-api-1.18.1-R0.1-20220228.150432-81-shaded.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/stenh/Downloads/worldedit-bukkit-7.2.6.jar">
+	<classpathentry kind="lib" path="/home/sten/Downloads/worldedit-bukkit-7.2.12.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>

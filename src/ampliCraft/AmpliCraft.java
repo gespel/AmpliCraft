@@ -6,6 +6,8 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import stelarit.Stelarit;
+
 public class AmpliCraft extends JavaPlugin implements Listener {
 	public FileConfiguration config;
 	public Playerranks ranks;

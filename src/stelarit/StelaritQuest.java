@@ -1,8 +1,11 @@
-package ampliCraft;
+package stelarit;
 
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.EntityType;
+
+import levelmoney.Geldsystem;
+import levelmoney.Levelsystem;
 
 public abstract class StelaritQuest {
 	String id;
@@ -35,7 +38,7 @@ public abstract class StelaritQuest {
 			this.questFinished();
 		}
 		else {
-			sp.getPlayer().sendMessage(ChatColor.GRAY + "Du hast (" + killCount + "/" + targetMobNumber + ") " + targetMob.getName() + " getötet!");
+			sp.getPlayer().sendMessage(ChatColor.GRAY + "Du hast (" + killCount + "/" + targetMobNumber + ") " + targetMob.getName() + " getï¿½tet!");
 		}
 	}
 	public void questFinished() {

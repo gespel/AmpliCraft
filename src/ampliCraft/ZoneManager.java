@@ -3,10 +3,12 @@ package ampliCraft;
 import java.util.UUID;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 
 import com.sk89q.worldedit.bukkit.BukkitAdapter;
+import com.sk89q.worldedit.world.World;
 import com.sk89q.worldguard.WorldGuard;
 import com.sk89q.worldguard.domains.DefaultDomain;
 import com.sk89q.worldguard.protection.ApplicableRegionSet;
@@ -30,7 +32,7 @@ public class ZoneManager {
 		DefaultDomain owner = region.getOwners();
 		if(owner.getUniqueIds().isEmpty()) {
 			owner.addPlayer(p.getUniqueId());
-			p.sendMessage(ChatColor.GREEN + "Du hast das Grundstück " + ChatColor.GOLD + region.getId() + ChatColor.GREEN + " für dich beansprucht!");
+			p.sendMessage(ChatColor.GREEN + "Du hast das Grundstï¿½ck " + ChatColor.GOLD + region.getId() + ChatColor.GREEN + " fï¿½r dich beansprucht!");
 		}
 		else {
 			p.sendMessage(ChatColor.RED + "Dieses Land wurde bereits beansprucht!");
@@ -44,7 +46,7 @@ public class ZoneManager {
 				Player add = Bukkit.getPlayer(name);
 				DefaultDomain owners = region.getOwners();
 				owners.addPlayer(add.getUniqueId());
-				add.sendMessage(ChatColor.GREEN + "Du wurdest als Besitzer zum Grundstück " + ChatColor.GOLD + name + ChatColor.GREEN + " hinzugefügt!");
+				add.sendMessage(ChatColor.GREEN + "Du wurdest als Besitzer zum Grundstï¿½ck " + ChatColor.GOLD + name + ChatColor.GREEN + " hinzugefï¿½gt!");
 				break;
 			}
 		}
@@ -52,7 +54,7 @@ public class ZoneManager {
 			p.sendMessage(ChatColor.RED + "Du besitzt diese Zone nicht!");
 		}
 		else {
-			p.sendMessage(ChatColor.GOLD + name + ChatColor.GREEN +  " wurde hinzugefügt!");
+			p.sendMessage(ChatColor.GOLD + name + ChatColor.GREEN +  " wurde hinzugefï¿½gt!");
 		}
 	}
 	public static void printZoneInfo(Player p) {

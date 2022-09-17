@@ -6,7 +6,14 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import games.Game;
+import games.MysteryBox;
+import games.PVEArena;
+import games.PVPArena;
+import levelmoney.Geldsystem;
+import levelmoney.Levelsystem;
 import net.md_5.bungee.api.ChatColor;
+import stelarit.StelaritPlayer;
 
 public class Commands implements CommandExecutor {
 	private AmpliCraft plugin;
@@ -66,7 +73,7 @@ public class Commands implements CommandExecutor {
 							StelaritPlayer sptarget = PlayerSets.stelaritPlayer.get(target);
 							sptarget.setPlayerProgress(Integer.parseInt(args[2]));
 							p.sendMessage(ChatColor.RED + "Stelaritfortschritt gesetzt!");
-							target.sendMessage(ChatColor.ITALIC + "" + ChatColor.RED + "Dein Stelaritfortschritt wurde geändert!");
+							target.sendMessage(ChatColor.ITALIC + "" + ChatColor.RED + "Dein Stelaritfortschritt wurde geï¿½ndert!");
 						}
 					}
 				}

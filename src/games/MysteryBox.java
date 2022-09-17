@@ -1,4 +1,4 @@
-package ampliCraft;
+package games;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,6 +12,8 @@ import org.bukkit.Particle;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+
+import ampliCraft.AmpliCraft;
 
 public class MysteryBox {
 	Player p;
