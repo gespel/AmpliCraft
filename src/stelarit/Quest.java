@@ -4,8 +4,9 @@ import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.EntityType;
 
-import levelmoney.Geldsystem;
-import levelmoney.Levelsystem;
+import ampliCraft.AmpliPlayer;
+//import levelmoney.Geldsystem;
+//import levelmoney.Levelsystem;
 
 public class Quest {
 	String id;
@@ -15,7 +16,7 @@ public class Quest {
 	int rewardExp;
 	float rewardMoney;
 	StelaritPlayer sp;
-	Levelsystem questExp;
+	AmpliPlayer ap;
 	public EntityType targetMob;
 	int targetMobNumber;
 	int killCount = 0;
@@ -27,7 +28,7 @@ public class Quest {
 			this.type = QuestType.KILLQUEST;
 			this.name = "Erste Schritte";
 			this.sp = sp;
-			this.questExp = new Levelsystem(this.sp.getPlayer(), config);
+			this.ap = new AmpliPlayer(this.sp.getPlayer(), config);
 			this.config = config;
 			this.rewardExp = 100;
 			this.targetMob = EntityType.SPIDER;
@@ -51,14 +52,13 @@ public class Quest {
 		if(this.id.equalsIgnoreCase("ersteSchritte")) {
 			this.sp.setPlayerProgress(2);
 		}
-		questExp.addExp(rewardExp);
+		ap.addExp(rewardExp);
 		//this.sp.removeQuest(id);
 	}
 	public void lastDialog() {
 		if(this.id.equalsIgnoreCase("ersteSchritte")) {
 			sp.getPlayer().sendMessage(ChatColor.BLUE + "Danke! Endlich muss ich mir keine sorgen mehr machen, dass die H�lfte meiner Kundschaft auf dem Weg zu meiner Kneipe aufgefressen wird. Falls du wieder Arbeit suchst sprich mich an. Achso hier ist noch ein bisschen Geld f�r dich!");
-			Geldsystem geld = new Geldsystem(sp.getPlayer(), config);
-			geld.addMoney(rewardMoney);
+			ap.addMoney(rewardMoney);
 			sp.setPlayerProgress(3);
 			this.sp.removeQuest(id);
 		}

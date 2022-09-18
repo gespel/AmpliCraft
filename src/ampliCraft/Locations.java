@@ -21,5 +21,6 @@ public class Locations {
 	public static final Location teleporterGamesToFolterKammerDoorUpper = new Location(Bukkit.getWorld("games"), 45, 76, 248);
 	public static final Location teleporterGamesToPveArenaDoorUpper = new Location(Bukkit.getWorld("games"), 2, 76, 236);
 	public static final Location teleporterGamesToPveArenaDoorLower = new Location(Bukkit.getWorld("games"), 2, 75, 236);
-	public static final Location folterkammerChest = new Location(Bukkit.getWorld("games"), -23, 51, 392); 
-}
+	public static final Location folterkammerChest = new Location(Bukkit.getWorld("games"), -23, 51, 392);
+	public static final Location weaponShopChest = new Location(Bukkit.getWorld("world"), -89, 69, -381);
+}	

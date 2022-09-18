@@ -10,8 +10,8 @@ import games.Game;
 import games.MysteryBox;
 import games.PVEArena;
 import games.PVPArena;
-import levelmoney.Geldsystem;
-import levelmoney.Levelsystem;
+//import levelmoney.Geldsystem;
+//import levelmoney.Levelsystem;
 import net.md_5.bungee.api.ChatColor;
 import stelarit.StelaritPlayer;
 
@@ -52,8 +52,8 @@ public class Commands implements CommandExecutor {
 				}
 			}
 			if(cmd.getName().equalsIgnoreCase("level")) {
-				Levelsystem lvl = new Levelsystem(p, plugin.config);
-				lvl.getPlayerInfo();
+				AmpliPlayer ap = new AmpliPlayer(p, plugin.config);
+				ap.getPlayerInfo();
 			}
 			if(cmd.getName().equalsIgnoreCase("stelarit")) {
 				if(args.length == 1) {
@@ -94,12 +94,12 @@ public class Commands implements CommandExecutor {
 				}
 			}
 			if(cmd.getName().equalsIgnoreCase("pay") || cmd.getName().equalsIgnoreCase("zahle")) {
-				Geldsystem geld = new Geldsystem(p, plugin.config);
-				geld.sendMoney(args[0], Float.parseFloat(args[1]));
+				AmpliPlayer ap = new AmpliPlayer(p, plugin.config);
+				ap.sendMoney(args[0], Float.parseFloat(args[1]));
 				Bukkit.getPluginManager().getPlugin("AmpliCraft").saveConfig();
 			}
 			if(cmd.getName().equalsIgnoreCase("geld") || cmd.getName().equalsIgnoreCase("money")) {
-				Geldsystem geld = new Geldsystem(p, plugin.config);
+				AmpliPlayer geld = new AmpliPlayer(p, plugin.config);
 				if(args.length == 0) {
 					geld.getMoney();
 				}

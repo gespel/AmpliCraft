@@ -10,9 +10,10 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
+import ampliCraft.AmpliPlayer;
 import ampliCraft.PlayerSets;
-import levelmoney.Geldsystem;
-import levelmoney.Levelsystem;
+//import levelmoney.Geldsystem;
+//import levelmoney.Levelsystem;
 
 public class Game {
 	Player p;
@@ -58,11 +59,11 @@ public class Game {
 		double time = ((double)endTime-startTime)/1000;
 		p.sendMessage(ChatColor.LIGHT_PURPLE + "Du hast " + time + " Sekunden gebraucht!");
 		Inventory inv = p.getInventory();
-		Levelsystem lvl = new Levelsystem(p, config);
+		AmpliPlayer ap = new AmpliPlayer(p, config);
 		inv.addItem(new ItemStack(Material.DIAMOND, 10));
 		p.sendMessage(ChatColor.GOLD + "Du hast das Ende erreicht!");
 		p.sendMessage(ChatColor.GOLD + "Du erhälst " + ChatColor.GREEN + "10" + ChatColor.GOLD + " Diamanten!");
-		lvl.addExp(200);
+		ap.addExp(200);
 		PlayerSets.jnrPlayer.remove(p);
 		PlayerSets.jnrTimer.remove(p);
 		p.teleport(Bukkit.getWorld("world").getSpawnLocation());
@@ -74,24 +75,23 @@ public class Game {
 		Bukkit.getServer().broadcastMessage(ChatColor.DARK_PURPLE + p.getName() + " hat soeben die Folterkammer beendet. Zeit: " + time);
 		p.sendMessage(ChatColor.LIGHT_PURPLE + "Du hast " + time + " Sekunden gebraucht!");
 		Inventory inv = p.getInventory();
-		Levelsystem lvl = new Levelsystem(p, config);
+		AmpliPlayer ap = new AmpliPlayer(p, config);
 		inv.addItem(new ItemStack(Material.DIAMOND, 200));
 		p.sendMessage(ChatColor.GOLD + "Du hast das Ende erreicht! WTF");
 		p.sendMessage(ChatColor.GOLD + "Du erhälst " + ChatColor.GREEN + "200" + ChatColor.GOLD + " Diamanten!");
-		lvl.addExp(10000);
+		ap.addExp(10000);
 		PlayerSets.folterkammerPlayer.remove(p);
 		PlayerSets.folterkammerTimer.remove(p);
 		p.teleport(Bukkit.getWorld("world").getSpawnLocation());
 	}
 	public static void finishedEyltra(Player p, PlayerInteractEvent event, FileConfiguration config) {
 		Inventory inv = p.getInventory();
-		Levelsystem lvl = new Levelsystem(p, config);
-		Geldsystem geld = new Geldsystem(p, config);
+		AmpliPlayer ap = new AmpliPlayer(p, config);
 		inv.remove(new ItemStack(Material.ELYTRA, 1));
 		inv.remove(new ItemStack(Material.FIREWORK_ROCKET));
 		p.sendMessage(ChatColor.GOLD + "Du hast das Ende erreicht!");
-		lvl.addExp(100);
-		geld.giveMoney(10);
+		ap.addExp(100);
+		ap.giveMoney(10);
 		PlayerSets.elytraPlayer.remove(p);
 		p.teleport(Bukkit.getWorld("world").getSpawnLocation());
 	}

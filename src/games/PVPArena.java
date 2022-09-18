@@ -11,8 +11,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.inventory.ItemStack;
 
+import ampliCraft.AmpliPlayer;
 import ampliCraft.PlayerSets;
-import levelmoney.Levelsystem;
+//import levelmoney.Levelsystem;
 import net.md_5.bungee.api.ChatColor;
 
 public class PVPArena {
@@ -143,12 +144,12 @@ public class PVPArena {
 	public static void onDeathCheckForArenaFight(Player p, PlayerDeathEvent event, FileConfiguration config) {
 		if(PlayerSets.blueTeam.contains(p)) {
 			Player killer = p.getKiller();
-			Levelsystem lvl = new Levelsystem(killer, config);
+			AmpliPlayer ap = new AmpliPlayer(killer, config);
 			if(PlayerSets.redTeam.contains(killer)) {
 				event.setKeepInventory(true);
 				event.setKeepLevel(true);
 				killer.sendMessage(ChatColor.GOLD + "Du hast einen Kill gemacht!");
-				lvl.addExp(100);
+				ap.addExp(100);
 				Bukkit.getPluginManager().getPlugin("AmpliCraft").saveConfig();
 				p.sendMessage(ChatColor.DARK_RED + "Du wurdest besiegt!");
 				p.getInventory().clear();
@@ -159,7 +160,7 @@ public class PVPArena {
 		}
 		else if(PlayerSets.redTeam.contains(p)) {
 			Player killer = p.getKiller();
-			Levelsystem lvl = new Levelsystem(killer, config);
+			AmpliPlayer lvl = new AmpliPlayer(killer, config);
 			if(PlayerSets.blueTeam.contains(killer)) {
 				event.setKeepInventory(true);
 				event.setKeepLevel(true);

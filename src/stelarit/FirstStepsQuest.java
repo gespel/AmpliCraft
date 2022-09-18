@@ -4,7 +4,8 @@ import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.EntityType;
 
-import levelmoney.Levelsystem;
+import ampliCraft.AmpliPlayer;
+//import levelmoney.Levelsystem;
 
 public class FirstStepsQuest extends StelaritQuest {
 
@@ -12,7 +13,7 @@ public class FirstStepsQuest extends StelaritQuest {
 		super("q1", sp, config);
 		this.type = QuestType.KILLQUEST;
 		this.name = "Erste Schritte";
-		this.questExp = new Levelsystem(this.sp.getPlayer(), config);
+		this.ap = new AmpliPlayer(this.sp.getPlayer(), config);
 		this.rewardExp = 100;
 		this.targetMob = EntityType.SPIDER;
 		this.lastStoryProgress = 2;

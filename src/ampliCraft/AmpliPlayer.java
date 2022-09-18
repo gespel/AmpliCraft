@@ -1,20 +1,41 @@
-package levelmoney;
+package ampliCraft;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
-public class Geldsystem {
-	Player p; 
+public class AmpliPlayer {
 	FileConfiguration config;
-	public Geldsystem(Player p, FileConfiguration config) {
-		this.p = p;
+	Player p;
+	public AmpliPlayer(Player p, FileConfiguration config) {
 		this.config = config;
+		this.p = p;
+	}
+	public void getPlayerInfo() {
+		Integer expInt = config.getInt(p.getName() + ".Exp");
+		Integer levelInt = config.getInt(p.getName() + ".Level");
+		p.sendMessage("Du bist Level " + ChatColor.RED + levelInt.toString() + ChatColor.RESET + ".");
+		p.sendMessage("Du hast " + ChatColor.GREEN + expInt.toString() + ChatColor.RESET + " Erfahrungspunkte.");
+	}
+	public void addExp(int exp) {//a
+		config.set(p.getName() + ".Exp", config.getInt(p.getName() + ".Exp") + exp);
+		p.sendMessage(ChatColor.GOLD + "Du erh�lst " + ChatColor.GREEN + exp + ChatColor.GOLD +" Erfahrungspunkte!");
+		updateLevel();
+	}
+	public void updateLevel() {
+		Integer expInt = config.getInt(p.getName() + ".Exp");
+		Integer levelInt = config.getInt(p.getName() + ".Level");
+		if(expInt >= levelInt * 50) {
+			levelInt++;
+			expInt = 0;
+		}
+		config.set(p.getName() + ".Exp", expInt);
+		config.set(p.getName() + ".Level", levelInt);
 	}
 	public void getMoney() {
 		float geld = Float.parseFloat(config.getString(p.getName() + ".Money"));
-		p.sendMessage("Du hast " + ChatColor.GREEN + geld + ChatColor.RESET + " �");
+		p.sendMessage("Du hast " + ChatColor.GREEN + geld + ChatColor.RESET + " €");
 	}
 	public static void zinsenTick(FileConfiguration config) {
 		for(String player : config.getConfigurationSection("").getKeys(false)) {
@@ -38,13 +59,13 @@ public class Geldsystem {
 			return true;
 		}
 		else {
-			p.sendMessage(ChatColor.RED + "Du hast nicht genug Geld daf�r!");
+			p.sendMessage(ChatColor.RED + "Du hast nicht genug Geld dafür!");
 			return false;
 		}
 	}
 	public void addMoney(float menge) {
 		config.set(p.getName() + ".Money", Float.toString(Float.parseFloat(config.getString(p.getName() + ".Money")) + menge));
-		p.sendMessage(ChatColor.GOLD + "Du erh�lst " + ChatColor.GREEN + menge + ChatColor.GOLD +" �!");
+		p.sendMessage(ChatColor.GOLD + "Du erhälst " + ChatColor.GREEN + menge + ChatColor.GOLD +" €!");
 	}
 	public void sendMoney(String recvname, float menge) {
 		Player recv = Bukkit.getPlayer(recvname);
@@ -55,8 +76,8 @@ public class Geldsystem {
 			sendergeld -= menge;
 			config.set(p.getName() + ".Money", Float.toString(sendergeld));
 			config.set(recv.getName() + ".Money", Float.toString(empfgeld));
-			p.sendMessage("Du hast " + recv.getName() + " " + ChatColor.GREEN + menge + ChatColor.RESET + " � geschickt!");
-			recv.sendMessage("Du hast von " + p.getName() + " " + ChatColor.GREEN + menge + ChatColor.RESET + "� erhalten!");
+			p.sendMessage("Du hast " + recv.getName() + " " + ChatColor.GREEN + menge + ChatColor.RESET + " € geschickt!");
+			recv.sendMessage("Du hast von " + p.getName() + " " + ChatColor.GREEN + menge + ChatColor.RESET + "€ erhalten!");
 		}
 		else {
 			p.sendMessage(ChatColor.RED + "So viel Geld hast du nicht!");

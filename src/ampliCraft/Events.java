@@ -1,5 +1,6 @@
 package ampliCraft;
 
+import org.bukkit.block.Chest;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -8,16 +9,19 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
+import org.bukkit.inventory.Inventory;
 
 import games.Game;
 import games.MysteryBox;
 import games.PVEArena;
 import games.PVPArena;
-import levelmoney.Geldsystem;
+import shops.Shops;
+//import levelmoney.Geldsystem;
 import stelarit.StelaritPlayer;
 import stelarit.StelaritQuest;
 
@@ -101,6 +105,12 @@ public class Events implements Listener {
 		}
 	}
 	@EventHandler
+    public void onInventoryClick(InventoryClickEvent e) {
+        if(e.getClickedInventory().getLocation().equals(Locations.weaponShopChest)) {
+        	Shops.weaponShop.buyItem(e, plugin.getConfig());
+        }
+    }
+	@EventHandler
 	public void onActivate(PlayerInteractEvent event) {
 		Player p = event.getPlayer();
 		if(event.getAction() == Action.RIGHT_CLICK_BLOCK) {
@@ -111,8 +121,8 @@ public class Events implements Listener {
 				}
 			}
 			else if(event.getClickedBlock().getLocation().equals(Locations.kistenHebel)) {
-				Geldsystem geld = new Geldsystem(p, plugin.config);
-				if(geld.payMoney(100)) {
+				AmpliPlayer ap = new AmpliPlayer(p, plugin.config);
+				if(ap.payMoney(100)) {
 					MysteryBox box = new MysteryBox(p, plugin);
 					box.openMysteryBox();
 				}
@@ -152,7 +162,7 @@ public class Events implements Listener {
 				PVEArena arena = new PVEArena(p, plugin.getConfig(), plugin);
 				arena.startFight();
 				event.setCancelled(true);
-			}
+			}   
 		}
 	}
 }

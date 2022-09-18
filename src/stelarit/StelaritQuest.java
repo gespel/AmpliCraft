@@ -4,8 +4,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.EntityType;
 
-import levelmoney.Geldsystem;
-import levelmoney.Levelsystem;
+import ampliCraft.AmpliPlayer;
 
 public abstract class StelaritQuest {
 	String id;
@@ -15,7 +14,7 @@ public abstract class StelaritQuest {
 	int rewardExp;
 	float rewardMoney;
 	StelaritPlayer sp;
-	Levelsystem questExp;
+	AmpliPlayer ap;
 	public EntityType targetMob;
 	int targetMobNumber;
 	int killCount = 0;
@@ -29,7 +28,7 @@ public abstract class StelaritQuest {
 		this.id = name;
 		this.sp = sp;
 		this.config = config;
-		this.questExp = new Levelsystem(sp.getPlayer(), config);
+		this.ap = new AmpliPlayer(sp.getPlayer(), config);
 	}
 	@SuppressWarnings("deprecation")
 	public void killedOneQuestMob() {
@@ -43,12 +42,12 @@ public abstract class StelaritQuest {
 	}
 	public void questFinished() {
 		this.sp.getPlayer().sendMessage(ChatColor.GREEN + "Du hast die Quest " + ChatColor.GOLD + this.name + " beendet!");
-		questExp.addExp(rewardExp);
+		ap.addExp(rewardExp);
 		sp.setPlayerProgress(lastStoryProgress);
 	}
 	public void lastDialog() {
 		sp.getPlayer().sendMessage(ChatColor.BLUE + questLastText);
-		Geldsystem geld = new Geldsystem(sp.getPlayer(), config);
+		AmpliPlayer geld = new AmpliPlayer(sp.getPlayer(), config);
 		geld.addMoney(rewardMoney);
 		sp.setPlayerProgress(1);
 		this.sp.removeQuest(id);
