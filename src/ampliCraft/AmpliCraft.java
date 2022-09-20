@@ -12,6 +12,7 @@ public class AmpliCraft extends JavaPlugin implements Listener {
 	public FileConfiguration config;
 	public Playerranks ranks;
 	public Stelarit stelarit;
+	public Shops shops;
 	public void onEnable() {
 		WorldCreator bauwelt = new WorldCreator("bauwelt");
 		WorldCreator games = new WorldCreator("games");
@@ -31,6 +32,7 @@ public class AmpliCraft extends JavaPlugin implements Listener {
         	} 
         }, 0, 500);
         setCommandExecutors();
+        shops = new Shops();
     }
 	public void onDisable() {
 		System.out.println("=================== Amplitueden Minecraft Server wird beendet ===================");

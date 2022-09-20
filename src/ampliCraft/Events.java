@@ -1,6 +1,5 @@
 package ampliCraft;
 
-import org.bukkit.block.Chest;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -14,13 +13,11 @@ import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
-import org.bukkit.inventory.Inventory;
 
 import games.Game;
 import games.MysteryBox;
 import games.PVEArena;
 import games.PVPArena;
-import shops.Shops;
 //import levelmoney.Geldsystem;
 import stelarit.StelaritPlayer;
 import stelarit.StelaritQuest;
@@ -106,9 +103,11 @@ public class Events implements Listener {
 	}
 	@EventHandler
     public void onInventoryClick(InventoryClickEvent e) {
-        if(e.getClickedInventory().getLocation().equals(Locations.weaponShopChest)) {
-        	Shops.weaponShop.buyItem(e, plugin.getConfig());
-        }
+		if (e.getClickedInventory() != null) {
+			if(e.getClickedInventory().getLocation().equals(Locations.weaponShopChest)) {
+				plugin.shops.weaponShop.buyItem(e, plugin.getConfig());
+			}
+		}
     }
 	@EventHandler
 	public void onActivate(PlayerInteractEvent event) {
