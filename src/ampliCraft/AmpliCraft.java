@@ -24,7 +24,7 @@ public class AmpliCraft extends JavaPlugin implements Listener {
         games.createWorld();
         stela.createWorld();
         stelarit = new Stelarit(config);
-        System.out.println("=================== Amplitueden Minecraft Server wird gestartet ===================");
+        Bukkit.getPluginManager().getPlugin("AmpliCraft").getLogger().info("=================== Amplitueden Minecraft Server wird gestartet ===================");
         Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new Runnable() { 
         	public void run() { 
         		//Geldsystem.zinsenTick(config);
@@ -35,7 +35,7 @@ public class AmpliCraft extends JavaPlugin implements Listener {
         shops = new Shops();
     }
 	public void onDisable() {
-		System.out.println("=================== Amplitueden Minecraft Server wird beendet ===================");
+		Bukkit.getPluginManager().getPlugin("AmpliCraft").getLogger().info("=================== Amplitueden Minecraft Server wird beendet ===================");
 	}
 	public void setCommandExecutors() {
 		getCommand("world").setExecutor(new Commands(this));

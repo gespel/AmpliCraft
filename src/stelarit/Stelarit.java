@@ -19,7 +19,7 @@ public class Stelarit {
 		story = new StelaritStory(config);
 		Entity birk = Bukkit.getWorld("stelarit").spawnEntity(new Location(Bukkit.getWorld("stelarit"), -175, 77, -172), EntityType.VILLAGER);
 		PlayerSets.stelaritNPCS.put("birk", birk);
-		System.out.println("Stelarit wurde gestartet!");
+		Bukkit.getPluginManager().getPlugin("AmpliCraft").getLogger().info("Stelarit wurde gestartet!");
 	}
 	public StelaritStory getStory() {
 		return this.story;
